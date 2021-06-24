@@ -1,6 +1,6 @@
 <template>
   <div class="layout-row">
-    <ProductList class="flex-70" :products="products" />
+    <ProductList class="flex-70" :products="products" @add-product="addToCart($event)" @del-product="removeFromCart($event)"/>
     <Cart class="flex-30" :cart="cart" />
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
         discount: 0,
         selectedCoupon: 0
       },
-      products: []
+      products: [],
     }
   },
   created() {
